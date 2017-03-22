@@ -1,0 +1,381 @@
+################################################
+######  ip-172-16-224-227 172.16.224.227  ######
+################################################
+
+#### OVERRIDE ####
+docker_version: 1.10.3
+compose_version: 1.7.0
+
+#### ZABBIX ####
+zabbix_server: "zabbix.otlabs.fr"
+
+###### USERS ######
+users:
+  renzmroq:
+    groups: ['sudo', 'ssh', 'docker']
+  victomad:
+    groups: ['sudo', 'ssh', 'docker']
+  kimsacul:
+    groups: ['sudo', 'ssh', 'docker']
+  ricargar:
+    groups: ['sudo', 'ssh', 'docker']
+  marivram:
+    groups: ['sudo', 'ssh', 'docker']
+  maretalt:
+    groups: ['sudo', 'ssh', 'docker']
+  hetzuser:
+    groups: ['sudo', 'ssh', 'docker']
+
+###### VOLUMES FOR CONAKRY #######
+volume_users:
+  sfoorgn:
+    uid: 999
+  spcorgn:
+    uid: 998
+
+volumes:
+  /var/container_data/conakry/omniORB.cfg:
+    group: root
+    mode: '0755'
+    owner: root
+    source: simplicate/conakry/simpho/omniORB.cfg
+    type: file
+  /var/container_data/conakry/OpenORB-1.3.1/config/OpenORB.xml:
+    group: root
+    mode: '0755'
+    owner: root
+    source: simplicate/conakry/simpho/OpenORB.xml
+    type: file
+  /var/container_data/conakry/jvm/java-7-openjdk-amd64/jre/OpenORB.xml:
+    group: root
+    mode: '0755'
+    owner: root
+    source: simplicate/conakry/simpho/OpenORB.xml
+    type: file
+  /var/container_data/conakry/start_simplicate.sh:
+    group: root
+    mode: '0755'
+    owner: root
+    source: simplicate/conakry/simpho/start_simplicate.sh
+    type: file
+    variables:
+      OMNI_PORT: 2809
+  /var/container_data/conakry/exe/asp/spcorgn/cfg/ac_simplicate:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/exe/asp/asp/cfg/ac_simplicate
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/asp/spcorgn/cfg/ac_mtmo:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/exe/asp/asp/cfg/ac_mtmo
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/asp/spcorgn/cfg/saff:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/exe/asp/asp/cfg/saff
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/asp/spcorgn/cfg/sc:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/exe/asp/asp/cfg/sc
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/asp/spcorgn/cfg/sh_simplicate:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/exe/asp/asp/cfg/sh_simplicate
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/composer/cfg/maff:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/composer/cfg/maff
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/composer/cfg/md_composer:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/composer/cfg/md_composer
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/smpp34/cfg/maff:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/smpp34/cfg/maff
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/smpp34/cfg/md_smpp34:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/smpp34/cfg/md_smpp34
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/popup/cfg/maff:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/popup/cfg/maff
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/md/popup/cfg/md_popup:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/popup/cfg/md_popup
+    type: file
+    variables:
+      LOG_LEVEL: 6
+      POPUP_ID: 1488
+      POPUP_SME: 11544
+      POPUP_SME_ALM: 11544
+      POPUP_SME_SIMKRO: 11544
+      POPUP_IPADDRESS: 94.124.135.154
+      POPUP_NOTIF_URL: http://94.124.135.154/cgi-bin/notifications.cgi
+      POPUP_MSG_URL: https://94.124.135.154/cgi-bin/messages.cgi
+      POPUP_PROXY_IPADDRESS: 10.86.0.9
+      POPUP_PROXY_PORT: 3128
+  /var/container_data/conakry/exe/md/popup/ctx/Certif1.pem:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/popup/ctx/Certif1.pem
+    type: file
+  /var/container_data/conakry/exe/md/popup/ctx/Certif2.pem:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/popup/ctx/Certif2.pem
+    type: file
+  /var/container_data/conakry/exe/md/popup/ctx/Certif3.pem:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/md/popup/ctx/Certif3.pem
+    type: file
+  /var/container_data/conakry/exe/sys/archiver/cfg/archiver:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/archiver/cfg/archiver
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/sys/event/cfg/evasp:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/event/cfg/evasp
+    type: file
+  /var/container_data/conakry/exe/sys/event/cfg/event:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/event/cfg/event
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/sys/event/cfg/evetrap:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/event/cfg/evetrap
+    type: file
+  /var/container_data/conakry/exe/sys/gsm0348/cfg/gsm0348:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/gsm0348/cfg/gsm0348
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/exe/sys/router/cfg/router:
+    group: sfoorgn
+    mode: '0644'
+    owner: sfoorgn
+    source: simplicate/conakry/simpho/exe/sys/router/cfg/router
+    type: file
+    variables:
+      LOG_LEVEL: 6
+  /var/container_data/conakry/services/IMEI.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/IMEI.sh
+    type: file
+  /var/container_data/conakry/services/Phonebook.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/Phonebook.sh
+    type: file
+  /var/container_data/conakry/services/Schedule.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/Schedule.sh
+    type: file
+  /var/container_data/conakry/services/SimSession.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/SimSession.sh
+    type: file
+  /var/container_data/conakry/services/Solver.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/Solver.sh
+    type: file
+  /var/container_data/conakry/services/Subscriber.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/Subscriber.sh
+    type: file
+  /var/container_data/conakry/services/User.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/User.sh
+    type: file
+  /var/container_data/conakry/services/Promotion.sh:
+    group: sfoorgn
+    mode: '0755'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/Promotion.sh
+    type: file
+  /var/container_data/conakry/services/classes/log4j.CampaignBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.CampaignBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.ImeiBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.ImeiBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.PhonebookBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.PhonebookBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.sBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.sBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.SchedulerBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.SchedulerBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.SimSessionBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.SimSessionBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.SolverBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.SolverBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.SubscriberBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.SubscriberBL.properties
+    type: file
+  /var/container_data/conakry/services/classes/log4j.UserBL.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/log4j.UserBL.properties
+    type: file
+  /var/container_data/conakry/etc/monit/conf.d/cron:
+    group: root
+    mode: '0644'
+    owner: root
+    source: simplicate/conakry/simpho/monit-conf.d_cron
+    type: file
+  /var/container_data/conakry/etc/monit/conf.d/rsyslogd:
+    group: root
+    mode: '0644'
+    owner: root
+    source: simplicate/conakry/simpho/monit-conf.d_rsyslogd
+    type: file
+  /var/container_data/conakry/sfoorgn_cronjob.txt:
+    group: root
+    mode: '0644'
+    owner: root
+    source: simplicate/conakry/simpho/sfoorgn_cronjob.txt
+    type: file
+  /var/container_data/conakry/spcorgn_cronjob.txt:
+    group: root
+    mode: '0644'
+    owner: root
+    source: simplicate/conakry/simpho/spcorgn_cronjob.txt
+    type: file    
+  /var/container_data/conakry/services/classes/com/ocs/simplicate/dal/dal.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/com/ocs/simplicate/dal/dal.properties
+    type: file
+    variables:
+      DB_SERVER_USER: TBU_DEV_2
+      DB_SERVER_PASSWORD: Sqkc8Y8tPV2hZ
+      DB_SERVER_IPADDRESS: odb1.otlabs.fr
+      DB_SERVER_PORT: 1521
+      DB_SERVER_SID: ORA11
+  /var/container_data/conakry/services/classes/com/ocs/simplicate/simplicate.services.properties:
+    group: sfoorgn
+    mode: '0644'
+    owner: spcorgn
+    source: simplicate/conakry/simpho/services/classes/com/ocs/simplicate/simplicate.services.properties
+    type: file
+    variables:
+      DB_SERVER_USER: TBU_DEV_2
+      DB_SERVER_PASSWORD: Sqkc8Y8tPV2hZ
+      DB_SERVER_SID: ORA11
+      DB_SERVER_IPADDRESS: odb1.otlabs.fr
+      DB_SERVER_PORT: 1521
+  /var/container_data/conakry/oracle/11.2/client32/network/admin/tnsnames.ora:
+    group: root
+    mode: '0644'
+    owner: root
+    source: simplicate/conakry/simpho/tnsnames.ora
+    type: file
+    variables:
+      DB_SERVER_SID: ORA11
+      DB_SERVER_IPADDRESS: odb1.otlabs.fr
+      DB_SERVER_PORT: 1521
